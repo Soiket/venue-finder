@@ -34,11 +34,9 @@
                                                     href="{{ route('edit-division', $item->id) }}"
                                                     style="color: aliceblue">Edit</a></button>
 
-                                        </td>
-                                        <td>
-                                            <form method="post" action="{{ route('delete-division', $item->id) }}">
+                                            <form  method="post" action="{{ route('delete-division', $item->id) }}">
                                                 @csrf
-                                                <button class="btn btn-danger" type="submit">Delete</button>
+                                                <button style="margin-inline: 60px;margin-top: -66px;" class="btn btn-danger" type="submit">Delete</button>
 
                                             </form>
 

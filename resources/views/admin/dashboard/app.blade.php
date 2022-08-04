@@ -133,6 +133,25 @@
                 </ul>
 
             </li><!-- End Forms Nav -->
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#venue-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Venue</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="venue-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{route('venue.create')}}">
+                            <i class="bi bi-circle"></i><span>Add Venue</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('venue.index')}}">
+                            <i class="bi bi-circle"></i><span>Manage Venue</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li><!-- End Forms Nav -->
         </ul>
 
     </aside><!-- End Sidebar-->
