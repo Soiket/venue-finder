@@ -6,11 +6,12 @@
             {{ session('status') }}
         </div>
     @endif
+
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="{{ route('dashboard')}}" class="logo d-flex align-items-center">
+            <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
                 <img src="{{ asset('admin/assets/img/logo.png') }}" alt="">
                 <span class="d-none d-lg-block">Venue Finder</span>
             </a>
@@ -70,7 +71,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('dashboard')}}">
+                <a class="nav-link " href="{{ route('dashboard') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -94,24 +95,24 @@
                     </li>
                 </ul>
             </li><!-- End Forms Nav -->
-            
+
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#division-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-journal-text"></i><span>Division</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="division-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="forms-elements.html">
+                        <a href="{{ route('create-division') }}">
                             <i class="bi bi-circle"></i><span>Add Division</span>
                         </a>
                     </li>
                     <li>
-                        <a href="forms-layouts.html">
+                        <a href="{{ route('manage-division') }}">
                             <i class="bi bi-circle"></i><span>Manage Division</span>
                         </a>
                     </li>
                 </ul>
-                
+
             </li><!-- End Forms Nav -->
 
             <li class="nav-item">
@@ -120,17 +121,17 @@
                 </a>
                 <ul id="zone-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="forms-elements.html">
+                        <a href="{{route('zone.create')}}">
                             <i class="bi bi-circle"></i><span>Add Zone</span>
                         </a>
                     </li>
                     <li>
-                        <a href="forms-layouts.html">
+                        <a href="{{route('zone.index')}}">
                             <i class="bi bi-circle"></i><span>Manage Zone</span>
                         </a>
                     </li>
                 </ul>
-                
+
             </li><!-- End Forms Nav -->
         </ul>
 
@@ -145,7 +146,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>{{date('Y')}}</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>{{ date('Y') }}</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
