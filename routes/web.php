@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\ZoneController;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('getDivsionsZoneList', [HomeController::class, 'getDivsionsZoneList'])->name('getDivsionsZoneList');
 
 Auth::routes();
 
