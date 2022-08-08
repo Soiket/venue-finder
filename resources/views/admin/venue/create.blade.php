@@ -1,134 +1,115 @@
 @extends('admin.dashboard.app')
 
 @section('main')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Create Venue') }}</div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Create Venue</h5>
 
-                    @if (session()->has('message'))
-                        <div style="color:green; float:right">
-                            {{ session()->get('message') }}
-                        </div>
-                    @endif
-                    <div class="card-body">
+            <!-- Floating Labels Form -->
+            <form class="row g-3" method="POST" action="{{ route('venue.store') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Venue Name"
+                            required>
+                        <label for="floatingName">Venue Name</label>
 
-                        <form method="POST" action="{{ route('venue.store') }}" enctype="multipart/form-data">
-                            @csrf
-
-                            <div class="row mb-3">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
-                            </div>
-                            <div class="row mb-3">
-                                <label for="Division"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Zone') }}</label>
-                                <div class="col-md-6">
-                                    <select name="zone_id" id="zone_id" class="form-control" required>
-                                        <option value="">Select One</option>
-                                        @foreach ($zone as $r)
-                                            <option value="{{ $r->id }}">{{ $r->name }}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="price"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Price') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="price" type="number"
-                                        class="form-control @error('price') is-invalid @enderror" name="price"
-                                        value="{{ old('price') }}" required autocomplete="price" autofocus>
-
-                                    @error('price')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
-                            </div>
-
-
-                            <div class="row mb-3">
-                                <label for="discount"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Discount') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="discount" type="number"
-                                        class="form-control @error('discount') is-invalid @enderror" name="discount"
-                                        value="{{ old('discount') }}" autocomplete="discount" autofocus>
-
-                                    @error('discount')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
-                            </div>
-
-
-                            <div class="row mb-3">
-                                <label for="address"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <textarea class="form-control" name="address"></textarea>
-                                </div>
-
-                            </div>
-
-
-                            <div class="row mb-3">
-                                <label for="description"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
-
-                                <div class="col-md-6">
-                                    <textarea class="form-control" name="description"></textarea>
-                                </div>
-
-                            </div>
-
-
-                            <div class="row mb-3">
-                                <label for="image"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Venue Image') }}</label>
-
-                                <div class="col-md-6">
-                                    <input type="file" class="form-control" name="image" required>
-
-                                </div>
-                            </div>
-
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Add Venue') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
-            </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" name="price" placeholder="Venue Price" required>
+                        <label for="floatingName">Venue Price</label>
+                        @error('price')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="discount" name="discount" placeholder="Discount">
+                        <label for="floatingName">Discount</label>
+                        @error('discount')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" placeholder="Address" id="address" name="address">
+                        <label for="floatingTextarea">Address</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="division" name="division" aria-label="State" required>
+                            <option value="">Select One</option>
+                            @foreach ($division as $r)
+                                <option value="{{ $r->id }}">{{ $r->name }}</option>
+                            @endforeach
+                        </select>
+                        <label for="floatingSelect">Select Division</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" name="zone_id" id="zone" aria-label="State" required>
+                            <option value="all">Select One</option>
+                        </select>
+                        <label for="floatingSelect">Select Zone</label>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <textarea name="description" class="form-control" id="description" placeholder="Description" style="height: 100px"></textarea>
+                            <label for="floatingCity">Description</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="file" class="form-control" name="image" required>
+                        <label for="floatingSelect">Venue Image</label>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form><!-- End floating Labels Form -->
+
         </div>
     </div>
+@endsection
+
+@section('ajax')
+    <script>
+        $(document).ready(function() {
+
+            $('#division').on('change', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'get',
+                    url: '{{ route('getDivsionsZoneList') }}',
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function(result) {
+                        console.log(result);
+                        $('#zone').html(result);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

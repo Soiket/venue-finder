@@ -6,6 +6,7 @@ use App\Models\Division;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Brian2694\Toastr\Facades\Toastr;
 
 class ZoneController extends Controller
 {
@@ -62,7 +63,9 @@ class ZoneController extends Controller
             'name' => $request->name,
             'division_id' => $request->division_id
         ]);
-        return redirect()->back()->with('message', 'Zone Add Successfully');
+        Toastr::success('Zone Added successfully :)','Success');
+        return redirect()->route('zone.index');
+
     }
 
     /**
@@ -116,7 +119,8 @@ class ZoneController extends Controller
             'name' => $request->name,
             'division_id' => $request->division_id
         ]);
-        return redirect()->back()->with('message', 'Zone Update Successfully');
+        Toastr::success('Zone Updated successfully :)','Success');
+        return redirect()->route('zone.index');
     }
 
     /**

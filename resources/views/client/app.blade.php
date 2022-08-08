@@ -25,6 +25,9 @@
 .book-now-form {
     text-align: center!important;
 }
+input#venue_name {
+    height: 40px!important;
+}
     </style>
 
 </head>

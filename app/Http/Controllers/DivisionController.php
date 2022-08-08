@@ -6,6 +6,7 @@ use App\Models\Division;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Brian2694\Toastr\Facades\Toastr;
 
 class DivisionController extends Controller
 {
@@ -27,6 +28,7 @@ class DivisionController extends Controller
             //dd($division);
             return view('admin.division.index', [
                 'division' => $division
+                
 
             ]);
         } else {
@@ -61,7 +63,12 @@ class DivisionController extends Controller
         Division::create([
             'name' => $request->name
         ]);
-        return redirect()->back()->with('message', 'Division Add Successfully');
+
+        
+        Toastr::success('division Added successfully :)','Success');
+
+        return redirect()->route('manage-division');
+        
     }
 
     /**
@@ -113,7 +120,10 @@ class DivisionController extends Controller
         $division->update([
             'name' => $request->name
         ]);
-        return redirect()->back()->with('message', 'Division Update Successfully');
+                
+        Toastr::success('division Updated successfully :)','Success');
+
+        return redirect()->route('manage-division');
     }
 
     /**

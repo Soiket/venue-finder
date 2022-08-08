@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Division;
 use App\Models\Venue;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Brian2694\Toastr\Facades\Toastr;
 
 class VenueController extends Controller
 {
@@ -35,10 +37,12 @@ class VenueController extends Controller
      */
     public function create()
     {
+        $division = Division::get()->all();
         $zone = Zone::get()->all();
 
         return view('admin.venue.create',[
-            'zone' => $zone
+            'zone' => $zone,
+            'division' => $division
         ]);
     }
 
@@ -78,7 +82,10 @@ class VenueController extends Controller
 
         $venu->save();
 
-        return redirect()->back()->with('message', 'Venue Add Successfully');
+        // return back()->with('success', 'Venue Add Successfully');
+        Toastr::success('Venue added successfully :)','Success');
+
+        return redirect()->route('venue.index');
     }
 
     /**
@@ -100,12 +107,14 @@ class VenueController extends Controller
      */
     public function edit($id)
     {
+        $division = Division::get()->all();
         $venue = Venue::find($id);
         $zone = Zone::get()->all();
         //  dd($division);
         return view('admin.venue.edit', [
             'venue' => $venue,
-            'zone' => $zone
+            'zone' => $zone,
+            'division' => $division
         ]);
     }
 
@@ -146,8 +155,9 @@ class VenueController extends Controller
             
         ]);
 
+        Toastr::success('Venue Updated successfully :)','Success');
 
-        return redirect()->back()->with('message', 'Venue Update Successfully');
+        return redirect()->route('venue.index');
     }
 
     /**

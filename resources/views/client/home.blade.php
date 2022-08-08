@@ -86,6 +86,11 @@
                         <form action="" id="search">
                             <!-- Form Group -->
                             <div class="form-group">
+                                <label for="select1">Venue Name</label>
+                                <input type="search" name="name" id="venue_name" height="100px" placeholder=" Looking for a venue...." >
+                            </div>
+                            <!-- Form Group -->
+                            <div class="form-group">
                                 <label for="select1">Select Division</label>
                                 <select class="" id="division" name="division">
                                     <option value="">Select One</option>

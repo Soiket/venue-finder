@@ -162,7 +162,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
     @include('admin.script')
-
+    @yield('ajax')
 </body>
 
 </html>
