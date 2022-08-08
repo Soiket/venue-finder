@@ -103,16 +103,17 @@
                                 </select>
                             </div>
                             <button @click="search" class="btn btn-primary" type="submit" id="searchBtn"><i
-                                class="fa fa-search"></i> Search</button>
-
+                                    class="fa fa-search"></i> Search</button>
+                            <button style="background-color: rgb(27, 27, 27)" class="btn btn-info" type="reset"
+                                id="reset">Reset</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
+    <section class="rooms-area section-padding-100-0" id="result">
+    </section>
     <!-- ##### Book Now Area End ##### -->
 
     <!-- ##### About Us Area Start ##### -->
@@ -385,6 +386,21 @@
     <script>
         $(document).ready(function() {
 
+            $('#reset').click(function() {
+                $('#result').html('');
+                $('#zone').html('<option value="all">Select One</option>');
+            });
+            $('#searchBtn').on('click', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'get',
+                    url: '{{ route('venueSearch') }}',
+                    data: $('#search').serialize(),
+                    success: function(result) {
+                        $('#result').html(result);
+                    }
+                });
+            });
             $('#division').on('change', function(e) {
                 e.preventDefault();
                 $.ajax({

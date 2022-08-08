@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Division;
+use App\Models\Venue;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 
@@ -54,6 +55,31 @@ class HomeController extends Controller
 
 
             echo $option;
+        }
+    }
+
+    public function venueSearch(Request $request)
+    {
+            // dd($request->all());
+        if ($request->ajax()) {
+            // $zonelist = Zone::with('division')->where('division_id', $request->id)->get();
+            // $zone_ids = $zonelist->pluck('id')->toArray();
+            $zons = Zone::where('id', $request->zone)->get();
+            $list[] = '';
+
+            if ($request->division != null && $request->zone != null) {
+                foreach ($zons as $key => $zon) {
+                        $list = Venue::where('zone_id', $zon->id)
+                        ->get();
+                }
+            }
+
+
+            return view('client.venueResult', [
+                'list'       =>  $list
+            ]);
+
+            // dd("Hi");
         }
     }
 }

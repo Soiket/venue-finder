@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('getDivsionsZoneList', [HomeController::class, 'getDivsionsZoneList'])->name('getDivsionsZoneList');
+Route::get('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
 
 Auth::routes();
 
