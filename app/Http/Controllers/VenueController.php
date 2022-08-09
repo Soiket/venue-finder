@@ -67,6 +67,9 @@ class VenueController extends Controller
             $filename = $file->getClientOriginalName();
             $path = $file->storeAs('public/images', $filename);
         }
+        else{
+            $filename = null;
+        }
     
 
      $venu =  Venue::create([

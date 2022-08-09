@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('getDivsionsZoneList', [HomeController::class, 'getDivsionsZoneList'])->name('getDivsionsZoneList');
-Route::get('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
+Route::post('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
 
 Auth::routes();
 
@@ -39,3 +39,4 @@ Route::post('/delete-division/{id}', [DivisionController::class, 'destroy'])->na
 Route::resource('zone',ZoneController::class);
 
 Route::resource('venue',VenueController::class);
+

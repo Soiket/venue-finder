@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <input type="file" class="form-control" name="image" required>
+                        <input type="file" class="form-control" name="image">
                         <label for="floatingSelect">Venue Image</label>
                     </div>
                 </div>

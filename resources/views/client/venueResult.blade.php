@@ -1,29 +1,111 @@
+@extends('client.app')
 
-    <div class="container">
-        <div class="row justify-content-center">
+@section('client_main')
+    <div style="height: 200px">
 
-            <!-- Single Rooms Area -->
-            @foreach ($list as $item)
-                <div class="col-12 col-md-6 col-lg-4">
-                   
-                    <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Thumbnail -->
-                        <div class="bg-thumbnail bg-img"
-                            style="background-image: url({{ URL::asset('storage/images') }}/{{$item->image}});"></div>
-                        <!-- Price -->
-                        <p class="price-from">From {{round($item->price)}}Tk/Day</p>
-                        <!-- Rooms Text -->
-                        <div class="rooms-text">
-                            <div class="line"></div>
-                            <h4>{{$item->name}}</h4>
-                            <p>{{$item->description}}</p>
-                        </div>
-                        <!-- Book Room -->
-                        <a href="#" class="book-room-btn btn palatin-btn">Book Event</a>
-                    </div>
-                    
-                </div>
-                @endforeach
-        </div>
+
     </div>
 
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <form action="{{ route('venueSearch') }}" method="POST"
+                    style="background-color: rgb(255, 175, 4); padding:20px">
+                    @csrf
+
+                    <div class="form-group">
+                        <label for="inputAddress2">Search Venu Name </label>
+                        <input type="text" class="form-control" id="venue_name" name="name" placeholder="Venu Name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputState">Select Division</label>
+                            <select class="" id="division" name="division">
+                                <option value="">Select One</option>
+                                @foreach ($division as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputState">Select Zone</label>
+                            <select name="zone" id="zone" class="">
+                                <option value="all">Select One</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="text-align: center">Search</button>
+                </form>
+
+            </div>
+
+            <div class="col-md-8">
+                <h4>Searching result for
+                    @if (request()->name)
+                        {{ request()->name }}
+                    @elseif(request()->division && request()->zone)
+                        Divions / Zones
+                    @endif
+
+                </h4>
+                @foreach ($list as $item)
+                    <div class="card">
+                        <h5 class="card-header"></h5>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md-4">
+
+                                    <img style="height: 100%" src="{{ asset('storage/images') }}/{{ $item->image }}">
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    <a href="#" class="card-text" style="color: rgb(0, 60, 255)">Show On Map <i
+                                            class="fa fa-map-marker fa-2x" aria-hidden="true"></i></a>
+                                    <p class="card-text"><b>Address: </b>{{ $item->address }}</p>
+                                    <p class="card-text">{{ $item->description }}</p>
+                                    <h5 style="" class="card-title"><b>BDT</b> {{ round($item->price) }}</h5>
+
+                                    <a href="#" class="btn btn-primary" style="float: right">Book Now</a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+@endsection
+@section('ajax')
+    <script>
+        $(document).ready(function() {
+
+            $('#division').on('change', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'get',
+                    url: '{{ route('getDivsionsZoneList') }}',
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function(result) {
+                        console.log(result);
+                        $('#zone').html(result);
+                    }
+                });
+            });
+        });
+    </script>
+@endsection

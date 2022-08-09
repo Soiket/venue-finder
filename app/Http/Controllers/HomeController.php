@@ -60,10 +60,8 @@ class HomeController extends Controller
 
     public function venueSearch(Request $request)
     {
-        // dd($request->all());
-        if ($request->ajax()) {
 
-
+            $division = Division::get();
             $list[] = '';
 
             if ($request->name == null && $request->division != null && $request->zone != null) {
@@ -75,7 +73,7 @@ class HomeController extends Controller
             }
 
 
-            if ($request->name != null && $request->division == null && $request->zone == null) {
+            if ($request->name != null) {
                 $list = Venue::where('name', 'like', '%' . $request->name . '%')->get();
             }
 
@@ -91,11 +89,17 @@ class HomeController extends Controller
                 $list = Venue::whereIn('zone_id', $zone_ids)->get();
             }
 
+            if ($request->name == null && $request->division == null) {
+                $list = Venue::where('name', 'like', '%' . $request->name . '%')->get();
+            }
+
+
 
             return view('client.venueResult', [
-                'list'       =>  $list
+                'list'       =>  $list,
+                'division' => $division
             ]);
-        }
+
     }
 
     public function venueSearchByName(Request $request)

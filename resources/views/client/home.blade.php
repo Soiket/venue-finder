@@ -83,7 +83,8 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form action="" id="search">
+                        <form action="{{route('venueSearch')}}"  method="POST">
+                            @csrf
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select1">Venue Name</label>
@@ -107,7 +108,7 @@
                                     <option value="all">Select One</option>
                                 </select>
                             </div>
-                            <button @click="search" class="btn btn-primary" type="submit" id="searchBtn"><i
+                            <button class="btn btn-primary" type="submit"><i
                                     class="fa fa-search"></i> Search</button>
                             <button style="background-color: rgb(27, 27, 27)" class="btn btn-info" type="reset"
                                 id="reset">Reset</button>
