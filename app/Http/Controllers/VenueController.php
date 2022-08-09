@@ -40,7 +40,7 @@ class VenueController extends Controller
         $division = Division::get()->all();
         $zone = Zone::get()->all();
 
-        return view('admin.venue.create',[
+        return view('admin.venue.create', [
             'zone' => $zone,
             'division' => $division
         ]);
@@ -66,27 +66,27 @@ class VenueController extends Controller
             $file = $request->file('image');
             $filename = $file->getClientOriginalName();
             $path = $file->storeAs('public/images', $filename);
-        }
-        else{
+        } else {
             $filename = null;
         }
-    
 
-     $venu =  Venue::create([
+
+        $venu =  Venue::create([
             'name' => $request->name,
             'zone_id' => $request->zone_id,
             'price' => $request->price,
             'discount' => $request->discount,
             'address' => $request->address,
             'description' => $request->description,
-            'image'=> $filename     
-            
+            'image' => $filename,
+            'location' => $request->location
+
         ]);
 
         $venu->save();
 
         // return back()->with('success', 'Venue Add Successfully');
-        Toastr::success('Venue added successfully :)','Success');
+        Toastr::success('Venue added successfully :)', 'Success');
 
         return redirect()->route('venue.index');
     }
@@ -131,7 +131,7 @@ class VenueController extends Controller
     public function update(Request $request, $id)
     {
         $venue = Venue::find($id);
-        
+
         $this->validate(
             $request,
             [
@@ -144,21 +144,24 @@ class VenueController extends Controller
             $file = $request->file('image');
             $filename = $file->getClientOriginalName();
             $path = $file->storeAs('public/images', $filename);
+        } else {
+            $filename = null;
         }
-    
 
-     $venue->update([
+
+        $venue->update([
             'name' => $request->name,
             'zone_id' => $request->zone_id,
             'price' => $request->price,
             'discount' => $request->discount,
             'address' => $request->address,
             'description' => $request->description,
-            'image'=> $filename     
-            
+            'image' => $filename,
+            'location' => $request->location
+
         ]);
 
-        Toastr::success('Venue Updated successfully :)','Success');
+        Toastr::success('Venue Updated successfully :)', 'Success');
 
         return redirect()->route('venue.index');
     }

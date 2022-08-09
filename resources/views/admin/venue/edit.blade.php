@@ -24,7 +24,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating">
-                        <input type="number" class="form-control" name="price" placeholder="Venue Price" value="{{ $venue->price }}" required>
+                        <input type="number" class="form-control" name="price" placeholder="Venue Price"
+                            value="{{ $venue->price }}" required>
                         <label for="floatingName">Venue Price</label>
                         @error('price')
                             <span class="invalid-feedback" role="alert">
@@ -35,7 +36,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="discount" name="discount" placeholder="Discount"  value="{{ $venue->discount }}">
+                        <input type="number" class="form-control" id="discount" name="discount" placeholder="Discount"
+                            value="{{ $venue->discount }}">
                         <label for="floatingName">Discount</label>
                         @error('discount')
                             <span class="invalid-feedback" role="alert">
@@ -46,7 +48,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating">
-                        <input class="form-control" placeholder="Address" id="address" name="address" value="{{ $venue->address }}">
+                        <input class="form-control" placeholder="Address" id="address" name="address"
+                            value="{{ $venue->address }}">
                         <label for="floatingTextarea">Address</label>
                     </div>
                 </div>
@@ -69,12 +72,13 @@
                         <label for="floatingSelect">Select Zone</label>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <textarea name="description" class="form-control" id="description" placeholder="Description" style="height: 100px">{{ $venue->description }}</textarea>
-                            <label for="floatingCity">Description</label>
-                        </div>
+
+                <div class="col-md-4">
+
+                    <div class="form-floating">
+                        <input name="location" class="form-control" id="location" placeholder="Google Map Link"
+                            value="{{ $venue->location }}">
+                        <label for="floatingCity">Google Map Link</label>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -82,6 +86,16 @@
                         <input type="file" class="form-control" name="image">
                         <label for="floatingSelect">Venue Image</label>
                     </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <textarea name="description" class="form-control" id="description" placeholder="Description" style="height: 100px">{{ $venue->description }}</textarea>
+                            <label for="floatingCity">Description</label>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -68,18 +68,26 @@
                         <label for="floatingSelect">Select Zone</label>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <textarea name="description" class="form-control" id="description" placeholder="Description" style="height: 100px"></textarea>
-                            <label for="floatingCity">Description</label>
-                        </div>
+                <div class="col-md-4">
+
+                    <div class="form-floating">
+                        <input name="location" class="form-control" id="location" placeholder="Google Map Link">
+                        <label for="floatingCity">Google Map Link</label>
                     </div>
+
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
                         <input type="file" class="form-control" name="image">
                         <label for="floatingSelect">Venue Image</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <textarea name="description" class="form-control" id="description" placeholder="Description" style="height: 100px"></textarea>
+                            <label for="floatingCity">Description</label>
+                        </div>
                     </div>
                 </div>
                 <div class="text-center">
