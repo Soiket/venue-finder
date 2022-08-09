@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
 
-    {   
+    {
         // $zone = Zone::get();
         // dd($zone);
 
@@ -60,26 +60,46 @@ class HomeController extends Controller
 
     public function venueSearch(Request $request)
     {
-            // dd($request->all());
+        // dd($request->all());
         if ($request->ajax()) {
-            // $zonelist = Zone::with('division')->where('division_id', $request->id)->get();
-            // $zone_ids = $zonelist->pluck('id')->toArray();
-            $zons = Zone::where('id', $request->zone)->get();
+
+
             $list[] = '';
 
-            if ($request->division != null && $request->zone != null) {
+            if ($request->name == null && $request->division != null && $request->zone != null) {
+                $zons = Zone::where('id', $request->zone)->get();
                 foreach ($zons as $key => $zon) {
-                        $list = Venue::where('zone_id', $zon->id)
+                    $list = Venue::where('zone_id', $zon->id)
                         ->get();
                 }
+            }
+
+
+            if ($request->name != null && $request->division == null && $request->zone == null) {
+                $list = Venue::where('name', 'like', '%' . $request->name . '%')->get();
+            }
+
+
+            if ($request->name != null && $request->division != null && $request->zone != null) {
+                $list = Venue::where('name', 'like', '%' . $request->name . '%')->get();
+            }
+
+
+            if ($request->name == null && $request->division != null && $request->zone == 'all') {
+                $zonelist = Zone::with('division')->where('division_id', $request->division)->get();
+                $zone_ids = $zonelist->pluck('id')->toArray();
+                $list = Venue::whereIn('zone_id', $zone_ids)->get();
             }
 
 
             return view('client.venueResult', [
                 'list'       =>  $list
             ]);
-
-            // dd("Hi");
         }
+    }
+
+    public function venueSearchByName(Request $request)
+
+    {
     }
 }

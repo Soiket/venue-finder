@@ -16,4 +16,5 @@ class Venue extends Model
     {
        return $this->belongsTo(Zone::class, 'zone_id', 'id' );
     }
+
 }
