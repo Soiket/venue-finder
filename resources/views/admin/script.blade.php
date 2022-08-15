@@ -12,7 +12,7 @@
 <!-- Template Main JS File -->
 <script src="{{ asset('admin/assets/js/main.js') }}"></script>
 
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="{{ asset('client/js/toastr.min.js') }}"></script>
 {!! Toastr::message() !!}
 
 

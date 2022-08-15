@@ -60,6 +60,9 @@
                     </div>
                 </div>
             </div>
+            <form>
+                <input type="button" value="Go back!" onclick="history.back()">
+            </form>
         </div>
     </div>
 @endsection

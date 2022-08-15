@@ -12,6 +12,7 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{ asset('client/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('client/css/toastr.min.css') }}">
 
     <style>
         select{
@@ -128,6 +129,9 @@ input#venue_name {
                                 <div class="menu-btn">
                                     <a href="#" class="btn palatin-btn">Make a Reservation</a>
                                 </div>
+                                <div class="menu-btn">
+                                    <a href="{{route('signup')}}" class="btn palatin-btn">Sign Up</a>
+                                </div>
 
                             </div>
                             <!-- Nav End -->
@@ -209,7 +213,9 @@ input#venue_name {
     <script src="{{ asset('client/js/plugins/plugins.js') }}"></script>
     <!-- Active js -->
     <script src="{{ asset('client/js/active.js') }}"></script>
-
+    <script src="{{ asset('client/js/toastr.min.js') }}"></script>
+    {!! Toastr::message() !!}
+    
     
     @yield('ajax')
 </body>

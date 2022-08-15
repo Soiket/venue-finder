@@ -30,6 +30,6 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
+    <link rel="stylesheet" href="{{ asset('client/css/toastr.min.css') }}">
 
 </head>

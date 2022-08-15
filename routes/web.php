@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\HomeController;
@@ -7,7 +8,7 @@ use App\Http\Controllers\VenueController;
 use App\Http\Controllers\ZoneController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use phpDocumentor\Reflection\Types\Resource_;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('getDivsionsZoneList', [HomeController::class, 'getDivsionsZoneList'])->name('getDivsionsZoneList');
 Route::post('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
+Route::get('/customer-signup', [CustomerController::class, 'signup'])->name('signup');
+Route::resource('customer', CustomerController::class);
 
 Auth::routes();
 
