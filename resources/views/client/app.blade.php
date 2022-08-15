@@ -15,20 +15,23 @@
     <link rel="stylesheet" href="{{ asset('client/css/toastr.min.css') }}">
 
     <style>
-        select{
-            display: block!important;
-            padding:10px;
-            width:100%;
+        select {
+            display: block !important;
+            padding: 10px;
+            width: 100%;
         }
+
         .nice-select {
-    display: none!important;
-}
-.book-now-form {
-    text-align: center!important;
-}
-input#venue_name {
-    height: 40px!important;
-}
+            display: none !important;
+        }
+
+        .book-now-form {
+            text-align: center !important;
+        }
+
+        input#venue_name {
+            height: 40px !important;
+        }
     </style>
 
 </head>
@@ -129,9 +132,35 @@ input#venue_name {
                                 <div class="menu-btn">
                                     <a href="#" class="btn palatin-btn">Make a Reservation</a>
                                 </div>
-                                <div class="menu-btn">
-                                    <a href="{{route('signup')}}" class="btn palatin-btn">Sign Up</a>
-                                </div>
+
+                                @if (Auth::user())
+                                    {
+                                    <div class="dropdown show">
+                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            {{ Auth::user()->name }}
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">View Profile</a>
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                                                <i class="bi bi-box-arrow-right"></i> <span>Sign Out</span>
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </div>
+                                    }
+                                @else
+                                    <div class="menu-btn">
+                                        <a href="{{ route('register') }}" class="btn palatin-btn">Sign Up</a>
+                                    </div>
+                                @endif
 
                             </div>
                             <!-- Nav End -->
@@ -144,7 +173,7 @@ input#venue_name {
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Hero Area Start ##### -->
-@yield('client_main')
+    @yield('client_main')
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
@@ -154,8 +183,8 @@ input#venue_name {
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-lg-5">
                     <div class="footer-widget-area mt-50">
-                        <a href="#" class="d-block mb-5"><img
-                                src="{{ asset('client/img/core-img/logo.png') }}" alt=""></a>
+                        <a href="#" class="d-block mb-5"><img src="{{ asset('client/img/core-img/logo.png') }}"
+                                alt=""></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
                             sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus
                             finibus. </p>
@@ -215,8 +244,8 @@ input#venue_name {
     <script src="{{ asset('client/js/active.js') }}"></script>
     <script src="{{ asset('client/js/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
-    
-    
+
+
     @yield('ajax')
 </body>
 

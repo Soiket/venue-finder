@@ -6,6 +6,7 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
+use GrahamCampbell\ResultType\Success;
 
 class CustomerController extends Controller
 {
@@ -112,5 +113,38 @@ class CustomerController extends Controller
     public function signup()
     {
         return view('customer.create');
+    }
+    public function customer_login()
+    {
+        return view('customer.login');
+    }
+
+    public function customer_login_check(Request $request)
+    {
+        $customer_info = Customer::whereEmail($request->email)->wherePassword($request->password)->first();
+
+
+        if (!empty($customer_info)) {
+
+            $info = array(
+                'id' => $customer_info->id,
+                'login_status' => 'success'
+            );
+
+            $request->session()->put('customer_info', json_encode($info));
+        } else {
+            return redirect()->back()->with('message', 'Sorry User not exist');
+        }
+        return redirect()->route('customerDashboard');
+    }
+
+    public function customerDashboard(Request $request)
+    {
+        if ($request->session()->has('customer_info')) {
+            return view('customer.index');
+        }
+        else {
+            return redirect()->route('customer_login');
+        }
     }
 }

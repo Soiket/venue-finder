@@ -70,7 +70,7 @@
                                     <p class="card-text">{{ $item->description }}</p>
                                     <h5 style="" class="card-title"><b>BDT</b> {{ round($item->price) }}</h5>
 
-                                    <a href="#" class="btn btn-primary" style="float: right">Book Now</a>
+                                    <a href="{{route('venuBooking', $item->id)}}" class="btn btn-primary" style="float: right">Book Now</a>
                                 </div>
 
                             </div>

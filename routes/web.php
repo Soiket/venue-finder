@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DivisionController;
@@ -25,8 +26,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('getDivsionsZoneList', [HomeController::class, 'getDivsionsZoneList'])->name('getDivsionsZoneList');
 Route::post('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
-Route::get('/customer-signup', [CustomerController::class, 'signup'])->name('signup');
 Route::resource('customer', CustomerController::class);
+Route::get('venuBooking/{id}', [BookingController::class,'index'])->name('venuBooking');
+Route::resource('booking', BookingController::class);
 
 Auth::routes();
 
