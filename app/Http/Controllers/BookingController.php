@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Customer;
+use App\Models\User;
 use App\Models\Venue;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
@@ -106,7 +108,11 @@ class BookingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $booking = Booking::find($id);
+        //  dd($division);
+        return view('booking.edit', [
+            'booking' => $booking
+        ]);
     }
 
     /**
@@ -118,7 +124,24 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $booking = Booking::find($id);
+        
+        $this->validate(
+            $request,
+            [
+                'status' => 'required',
+            ],
+        );
+
+        $booking->update([
+
+            'status' => $request->status
+
+        ]);
+
+        Toastr::success('Booking Updated successfully :)', 'Success');
+
+        return redirect()->route('booking.index');
     }
 
     /**
@@ -142,5 +165,14 @@ class BookingController extends Controller
             }
             echo $result;
         }
+    }
+
+    public function manageBooking()
+    {
+
+        $booking = Booking::with('venue', 'user')->get()->all();
+        return view('booking.index',[
+            'booking' => $booking,
+        ]);
     }
 }

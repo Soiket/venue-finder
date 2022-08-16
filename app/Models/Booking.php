@@ -11,4 +11,15 @@ class Booking extends Model
     protected $fillable=[
         'customer_id', 'venue_id', 'price', 'date', 'status', 'payment_method',
     ];
+
+    public function venue()
+    {
+       return $this->belongsTo(Venue::class, 'venue_id', 'id' );
+    }
+
+    
+    public function user()
+    {
+       return $this->belongsTo(User::class, 'customer_id', 'id' );
+    }
 }

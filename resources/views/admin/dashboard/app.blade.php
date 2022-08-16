@@ -134,6 +134,19 @@
                 </ul>
 
             </li><!-- End Forms Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#booking-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Booking</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="booking-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{route('manageBooking')}}">
+                            <i class="bi bi-circle"></i><span>Manage Venue</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li><!-- End Forms Nav -->
         </ul>
 
     </aside><!-- End Sidebar-->

@@ -29,6 +29,7 @@ Route::post('venueSearch', [HomeController::class, 'venueSearch'])->name('venueS
 Route::resource('customer', CustomerController::class);
 Route::get('venuBooking/{id}', [BookingController::class,'index'])->name('venuBooking');
 Route::get('bookingDate', [BookingController::class,'bookingDate'])->name('bookingDate');
+Route::get('/manageBooking', [BookingController::class,'manageBooking'])->name('manageBooking');
 Route::resource('booking', BookingController::class);
 
 Auth::routes();
