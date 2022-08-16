@@ -29,6 +29,8 @@ class BookingController extends Controller
         $venue = Venue::where('id', $id)->first();
         $booking = Booking::first();
 
+     //   dd($booking);
+
         return view('booking.create', [
             'venue' => $venue,
             'booking' => $booking

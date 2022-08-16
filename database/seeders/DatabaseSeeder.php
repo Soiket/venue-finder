@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DivisionSeeder::class);
         $this->call(ZoneSeeder::class);
         $this->call(VenuSeeder::class);
+        $this->call(BookingSeeder::class);
     }
 }
