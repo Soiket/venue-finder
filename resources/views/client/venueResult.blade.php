@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <h5 class="card-title">{{ $item->name }}</h5>
-                                    <a href="#" class="card-text" style="color: rgb(0, 60, 255)">Show On Map <i
+                                    <a href="{{$item->location}}" class="card-text" style="color: rgb(0, 60, 255)">Show On Map <i
                                             class="fa fa-map-marker fa-2x" aria-hidden="true"></i></a>
                                     <p class="card-text"><b>Address: </b>{{ $item->address }}</p>
                                     <p class="card-text">{{ $item->description }}</p>
