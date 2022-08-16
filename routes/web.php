@@ -28,6 +28,7 @@ Route::get('getDivsionsZoneList', [HomeController::class, 'getDivsionsZoneList']
 Route::post('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
 Route::resource('customer', CustomerController::class);
 Route::get('venuBooking/{id}', [BookingController::class,'index'])->name('venuBooking');
+Route::get('bookingDate', [BookingController::class,'bookingDate'])->name('bookingDate');
 Route::resource('booking', BookingController::class);
 
 Auth::routes();

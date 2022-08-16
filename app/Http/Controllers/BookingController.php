@@ -126,4 +126,18 @@ class BookingController extends Controller
     {
         //
     }
+
+    public function bookingDate(Request $request)
+    {
+        if (request()->ajax() && !empty($request->date)) {
+
+            $dateCheck = Booking::where('venue_id', $request->venue_id)->where('date', $request->date)->get()->first();
+            if ($dateCheck) {
+                $result = '<p style="color:red">Already Booking. Please Select Another Date</p>';
+            } else {
+                $result = '<p style="color:green">Select a Date</p>';
+            }
+            echo $result;
+        }
+    }
 }
