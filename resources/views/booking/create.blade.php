@@ -13,8 +13,8 @@
                 style="background-color: rgb(190, 187, 183); padding:20px; width:50%">
                 @csrf
                 <div class="form-group">
-                    <label for="Date">Check Availibility </label>
-                    <input type="date" id="date" name="date" required>
+                    <label for="Date">Check Availibility </label> <i class="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
+                    <input class="date form-control" type="text" name="date"  placeholder="yyyy-mm-dd" required >
                     <input type="hidden" value="{{ $venue->id }}" name="venue_id">
                 </div>
                 <div class="form-group">

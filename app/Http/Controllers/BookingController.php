@@ -23,11 +23,11 @@ class BookingController extends Controller
     public function index($id)
     {
 
-        
-        $venue = Venue::where('id',$id)->first();
+
+        $venue = Venue::where('id', $id)->first();
         $booking = Booking::first();
-        
-        return view('booking.create',[
+
+        return view('booking.create', [
             'venue' => $venue,
             'booking' => $booking
         ]);
@@ -40,7 +40,6 @@ class BookingController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -51,8 +50,8 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        
-       
+
+
         $venue_id = $request->venue_id;
         $venue = Venue::where('id', $venue_id)->first();
         $venuPrice = $venue->price;
@@ -60,7 +59,7 @@ class BookingController extends Controller
         $this->validate(
             $request,
             [
-                'date' => 'required'               
+                'date' => 'required',
             ],
         );
 

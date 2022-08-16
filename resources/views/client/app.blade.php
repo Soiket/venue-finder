@@ -11,6 +11,9 @@
     <link rel="icon" href="{{ asset('client/img/core-img/favicon.ico') }}">
 
     <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('client/style.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/toastr.min.css') }}">
 
@@ -247,6 +250,15 @@
 
 
     @yield('ajax')
+    {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+        $('.date').datepicker({  
+           format: 'yyyy-mm-dd',
+           startDate: new Date()
+           
+         });  
+    </script> 
 </body>
 
 </html>
