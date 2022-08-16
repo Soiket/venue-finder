@@ -12,13 +12,15 @@
             <form action="{{ route('booking.store') }}" method="POST"
                 style="background-color: rgb(190, 187, 183); padding:20px; width:50%">
                 @csrf
-              
+
                 <div class="form-group">
-                    <label for="Date">Check Availibility </label> <i class="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
-                    <input class="date form-control" type="text" name="date" id="date" placeholder="yyyy-mm-dd" required >
+                    <label for="Date">Check Availibility </label> <i class="fa fa-calendar-check-o fa-2x"
+                        aria-hidden="true"></i>
+                    <input class="date form-control" type="text" name="date" id="date" placeholder="yyyy-mm-dd"
+                        required>
                     <input type="hidden" value="{{ $venue->id }}" name="venue_id" id="venue_id">
                 </div>
-                <div id="result"></div>
+                <div style="background-color: brown" id="result"></div>
                 <div class="form-group">
                     <label for="floatingSelect">Payment Method</label>
                     <select class="form-select" id="payment_method" name="payment_method" aria-label="State" required>
@@ -51,7 +53,7 @@
         $(document).ready(function() {
 
             $('#date').on('change', function(e) {
-                
+
                 e.preventDefault();
                 $.ajax({
                     type: 'get',
@@ -61,7 +63,6 @@
                         venue_id: $("#venue_id").val()
                     },
                     success: function(result) {
-                        
                         console.log(result);
                         $('#result').html(result);
                     }
@@ -70,4 +71,3 @@
         });
     </script>
 @endsection
-

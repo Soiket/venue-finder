@@ -51,35 +51,40 @@ class BookingController extends Controller
     public function store(Request $request)
     {
 
+        $dateCheck = Booking::where('venue_id', $request->venue_id)->where('date', $request->date)->get()->first();
 
-        $venue_id = $request->venue_id;
-        $venue = Venue::where('id', $venue_id)->first();
-        $venuPrice = $venue->price;
-        //dd($venuPrice);
-        $this->validate(
-            $request,
-            [
-                'date' => 'required',
-            ],
-        );
+        if ($dateCheck) {
+
+            Toastr::error('Already Booked. Please Select Another Date !', 'Error');
+            return redirect()->back();
+        } else {
+            $venue_id = $request->venue_id;
+            $venue = Venue::where('id', $venue_id)->first();
+            $venuPrice = $venue->price;
+            //dd($venuPrice);
+            $this->validate(
+                $request,
+                [
+                    'date' => 'required',
+                ],
+            );
 
 
-        $booking_venues =  Booking::create([
-            'customer_id' => Auth::user()->id,
-            'venue_id' => $request->venue_id,
-            'price' => $venuPrice,
-            'date' => $request->date,
-            'status' => 'pending',
-            'payment_method' => $request->payment_method
+            $booking_venues =  Booking::create([
+                'customer_id' => Auth::user()->id,
+                'venue_id' => $request->venue_id,
+                'price' => $venuPrice,
+                'date' => $request->date,
+                'status' => 'pending',
+                'payment_method' => $request->payment_method
 
-        ]);
+            ]);
 
-        $booking_venues->save();
+            $booking_venues->save();
 
-        // return back()->with('success', 'Venue Add Successfully');
-        Toastr::success('booking successfull :)', 'Success');
-
-        return redirect()->back();
+            Toastr::success('Booking successfull :)', 'Success');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -133,9 +138,7 @@ class BookingController extends Controller
 
             $dateCheck = Booking::where('venue_id', $request->venue_id)->where('date', $request->date)->get()->first();
             if ($dateCheck) {
-                $result = '<p style="color:red">Already Booking. Please Select Another Date</p>';
-            } else {
-                $result = '<p style="color:green">Select a Date</p>';
+                $result = '<p style="color:#fff">Already Booked. Please Select Another Date</p>';
             }
             echo $result;
         }
