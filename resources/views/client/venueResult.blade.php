@@ -6,7 +6,7 @@
 
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-bottom:50px">
         <div class="row">
 
             <div class="col-md-4">
@@ -81,16 +81,15 @@
                     </div>
                 @endforeach
             </div>
-
-
-
-
+            <div class="col-md-4"></div>
+            <div class="col-md-8 mt-2">
+                Total : {{ $list->total() }}
+                <div class="float-right">{{ $list->appends(Request::all())->links() }}</div>
+            </div>
 
         </div>
     </div>
-    <div style="height: 50px">
-bar 
-    </div>
+    
 @endsection
 @section('ajax')
     <script>

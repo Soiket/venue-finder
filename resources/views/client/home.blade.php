@@ -83,8 +83,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form action="{{route('venueSearch')}}"  method="POST">
-                            @csrf
+                        <form action="{{route('venueSearch')}}"  method="GET">                            
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select1">Venue Name</label>

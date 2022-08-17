@@ -25,7 +25,7 @@ use phpDocumentor\Reflection\Types\Resource_;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('getDivsionsZoneList', [HomeController::class, 'getDivsionsZoneList'])->name('getDivsionsZoneList');
-Route::post('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
+Route::get('venueSearch', [HomeController::class, 'venueSearch'])->name('venueSearch');
 Route::resource('customer', CustomerController::class);
 Route::get('venuBooking/{id}', [BookingController::class,'index'])->name('venuBooking');
 Route::get('bookingDate', [BookingController::class,'bookingDate'])->name('bookingDate');

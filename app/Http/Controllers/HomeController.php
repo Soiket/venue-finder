@@ -61,44 +61,47 @@ class HomeController extends Controller
     public function venueSearch(Request $request)
     {
 
-            $division = Division::get();
-            $list[] = '';
+        $division = Division::get();
+        $list[] = '';
 
-            $venue  = Venue::query();
+        $venue  = Venue::query();
 
-            if ($request->name == null && $request->division != null && $request->zone != null) {
-                $zon = Zone::where('id', $request->zone)->first();
-                $venue->where('zone_id', $zon->id);                
+        if ($request->name == null && $request->division != null && $request->zone != null) {
+            $zon = Zone::where('id', $request->zone)->first();
+            if ($zon) {
+
+                $venue->where('zone_id', $zon->id);
             }
+        }
 
 
-            if ($request->name != null) {
-                $venue->where('name', 'like', '%' . $request->name . '%');
-            }
+        if ($request->name != null) {
+            $venue->where('name', 'like', '%' . $request->name . '%');
+        }
 
 
-            if ($request->name != null && $request->division != null && $request->zone != null) {
-                $venue->where('name', 'like', '%' . $request->name . '%');
-            }
+        if ($request->name != null && $request->division != null && $request->zone != null) {
+            $venue->where('name', 'like', '%' . $request->name . '%');
+        }
 
 
-            if ($request->name == null && $request->division != null && $request->zone == 'all') {
-                $zonelist = Zone::with('division')->where('division_id', $request->division)->get();
-                $zone_ids = $zonelist->pluck('id')->toArray();
-                $venue->whereIn('zone_id', $zone_ids);
-            }
+        if ($request->name == null && $request->division != null && $request->zone == 'all') {
+            $zonelist = Zone::with('division')->where('division_id', $request->division)->get();
+            $zone_ids = $zonelist->pluck('id')->toArray();
+            $venue->whereIn('zone_id', $zone_ids);
+        }
 
-            if ($request->name == null && $request->division == null) {
-                $venue->where('name', 'like', '%' . $request->name . '%');
-            }
+        if ($request->name == null && $request->division == null) {
+            $venue->where('name', 'like', '%' . $request->name . '%');
+        }
 
-            $list = $venue->paginate(10);
+        $list = $venue->paginate(2);
+        
 
-            return view('client.venueResult', [
-                'list'       =>  $list,
-                'division' => $division
-            ]);
-
+        return view('client.venueResult', [
+            'list'       =>  $list,
+            'division' => $division
+        ]);
     }
 
     public function venueSearchByName(Request $request)
