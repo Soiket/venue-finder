@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <p class="small mb-0">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
+                            <p class="small mb-0">Already have an account? <a href="{{ route('login') }}">Log In</a></p>
                         </div>
                     </form>
                 </div>
