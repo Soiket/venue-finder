@@ -72,7 +72,10 @@
                                                         {{ __('Login') }}
                                                     </button>
                                                 </div>
-                                            </div>
+                                            </div><br>
+                                            <div class="col-12">
+                                                <p class="small mb-0">Don't have account? <a href="{{route('register')}}">Create an account</a></p>
+                                              </div>
                                         </form>
 
                                     </div>
