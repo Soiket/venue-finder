@@ -64,16 +64,14 @@
                                 </div>
                                 <div class="col-md-8">
                                     <h5 class="card-title">{{ $item->name }}</h5>
-                                    <a href="{{$item->location}}" class="card-text" style="color: rgb(0, 60, 255)">Show On Map <i
-                                            class="fa fa-map-marker fa-2x" aria-hidden="true"></i></a>
+                                    <a href="{{ $item->location }}" class="card-text" style="color: rgb(0, 60, 255)">Show On
+                                        Map <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></a>
                                     <p class="card-text"><b>Address: </b>{{ $item->address }}</p>
                                     <p class="card-text">{{ $item->description }}</p>
                                     <h5 style="" class="card-title"><b>BDT</b> {{ round($item->price) }}</h5>
-                                    @if(Auth::user())
-                                    <a href="{{route('venuBooking', $item->id)}}" class="btn btn-primary" style="float: right">Book Now</a>
-                                    @else
-                                    <a href="{{route('register')}}" class="btn btn-primary" style="float: right">Sign Up</a>
-                                    @endif
+
+                                    <a href="{{ route('venuBooking', $item->id) }}" class="btn btn-primary"
+                                        style="float: right">Book Now</a>
                                 </div>
 
                             </div>
@@ -89,6 +87,9 @@
 
 
         </div>
+    </div>
+    <div style="height: 50px">
+bar 
     </div>
 @endsection
 @section('ajax')

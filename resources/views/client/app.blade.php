@@ -255,10 +255,12 @@
     <script type="text/javascript">
         $('.date').datepicker({  
            format: 'yyyy-mm-dd',
-           startDate: new Date()
+           startDate: new Date(),
+           inline: true
            
          });  
     </script> 
+
 </body>
 
 </html>

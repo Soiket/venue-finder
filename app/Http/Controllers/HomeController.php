@@ -64,36 +64,35 @@ class HomeController extends Controller
             $division = Division::get();
             $list[] = '';
 
+            $venue  = Venue::query();
+
             if ($request->name == null && $request->division != null && $request->zone != null) {
-                $zons = Zone::where('id', $request->zone)->get();
-                foreach ($zons as $key => $zon) {
-                    $list = Venue::where('zone_id', $zon->id)
-                        ->get();
-                }
+                $zon = Zone::where('id', $request->zone)->first();
+                $venue->where('zone_id', $zon->id);                
             }
 
 
             if ($request->name != null) {
-                $list = Venue::where('name', 'like', '%' . $request->name . '%')->get();
+                $venue->where('name', 'like', '%' . $request->name . '%');
             }
 
 
             if ($request->name != null && $request->division != null && $request->zone != null) {
-                $list = Venue::where('name', 'like', '%' . $request->name . '%')->get();
+                $venue->where('name', 'like', '%' . $request->name . '%');
             }
 
 
             if ($request->name == null && $request->division != null && $request->zone == 'all') {
                 $zonelist = Zone::with('division')->where('division_id', $request->division)->get();
                 $zone_ids = $zonelist->pluck('id')->toArray();
-                $list = Venue::whereIn('zone_id', $zone_ids)->get();
+                $venue->whereIn('zone_id', $zone_ids);
             }
 
             if ($request->name == null && $request->division == null) {
-                $list = Venue::where('name', 'like', '%' . $request->name . '%')->get();
+                $venue->where('name', 'like', '%' . $request->name . '%');
             }
 
-
+            $list = $venue->paginate(2);
 
             return view('client.venueResult', [
                 'list'       =>  $list,
