@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Customer',
-                'email' => 'customer@gmil.com',
+                'email' => 'customer@gmail.com',
                 'password' => bcrypt('12345678'),
                 'isAdmin' => 'no'
 
