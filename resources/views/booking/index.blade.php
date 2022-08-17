@@ -39,16 +39,16 @@
                                         <td>{{ $item->date }}</td>
                                         <td>{{ $item->payment_method }}</td>
                                         @if($item->status == 'pending')
-                                        <td style="background-color: rgb(255, 0, 0)" >{{ $item->status }}</td>
+                                        <td class="bg-warning text-center" >Pending</td>
                                         @elseif($item->status == 'confirm')
-                                        <td style="background-color: rgb(75, 255, 4)" >{{ $item->status }}</td>
+                                        <td class="bg-success text-white text-center">Confirmed</td>
                                         @elseif($item->status == 'cancel')
-                                        <td style="background-color: rgb(255, 0, 179)" >{{ $item->status }}</td>
+                                        <td class="bg-danger text-white text-center">Canceled</td>
                                         @endif
                                         <td>
                                             <button class="btn btn-primary"><a
                                                     href="{{ route('booking.edit', $item->id) }}"
-                                                    style="color: aliceblue">Edit</a></button>
+                                                    style="color: aliceblue">Validate</a></button>
 
                                             {{-- <form  method="post" action="">
                                                 @csrf
