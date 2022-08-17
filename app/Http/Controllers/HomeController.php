@@ -92,7 +92,7 @@ class HomeController extends Controller
                 $venue->where('name', 'like', '%' . $request->name . '%');
             }
 
-            $list = $venue->paginate(2);
+            $list = $venue->paginate(10);
 
             return view('client.venueResult', [
                 'list'       =>  $list,
