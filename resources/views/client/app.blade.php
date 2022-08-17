@@ -161,7 +161,8 @@
                                     }
                                 @else
                                     <div class="menu-btn">
-                                        <a href="{{ route('register') }}" class="btn palatin-btn">Sign Up</a>
+                                        <a href="{{ route('login') }}" class="btn palatin-btn">Login</a>
+                                        {{-- <a href="{{ route('register') }}" class="btn palatin-btn">Sign Up</a> --}}
                                     </div>
                                 @endif
 

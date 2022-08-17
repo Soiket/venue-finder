@@ -20,6 +20,9 @@
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
+                <li class="nav-item">
+                    <a class="btn btn-primary text-white" href="{{route('home')}}">View Site</a>
+                </li>
 
                 <li class="nav-item dropdown pe-3">
 
@@ -27,6 +30,8 @@
                         data-bs-toggle="dropdown">
                         <span class="d-none d-md-block dropdown-toggle ps-2"> {{ Auth::user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
+
+                    
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
