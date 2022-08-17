@@ -119,8 +119,7 @@ class CustomerController extends Controller
 
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
-
+           
         ]);
         $profileUpdate->save();
 
@@ -149,5 +148,20 @@ class CustomerController extends Controller
             'profile' => $profile
         ]);
 
+    }
+
+    public function passwordUpdate(Request $request, $id)
+    {
+        $profileUpdate = User::find($id);
+
+        $profileUpdate->update([
+
+            'password' => Hash::make($request->password)
+
+        ]);
+        $profileUpdate->save();
+
+        Toastr::success('Password Update successfull :)', 'Success');
+        return redirect()->route('viewProfile');
     }
 }

@@ -25,6 +25,10 @@
                                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit
                                     Profile</button>
                             </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab"
+                                    data-bs-target="#profile-change-password">Change Password</button>
+                            </li>
 
                         </ul>
                         <div class="tab-content pt-2">
@@ -48,14 +52,14 @@
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                 <!-- Profile Edit Form -->
-                                <form action="{{ route('customer.update', $p->id)}}" method="POST">
+                                <form action="{{ route('customer.update', $p->id) }}" method="POST">
                                     @Method('PUT')
                                     @csrf
                                     <div class="row mb-3">
                                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="name" type="text" class="form-control" id="name"
-                                                value="{{$p->name}}">
+                                                value="{{ $p->name }}">
                                         </div>
                                     </div>
 
@@ -64,22 +68,36 @@
                                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="email" type="email" class="form-control" id="Email"
-                                                value="{{$p->email}}">
+                                                value="{{ $p->email }}">
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
-                                        <label for="Password" class="col-md-4 col-lg-3 col-form-label">Password</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input name="password" type="password" class="form-control" id="password"
-                                                value="{{$p->password}}">
-                                        </div>
-                                    </div>
+
 
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Save Changes</button>
                                     </div>
                                 </form><!-- End Profile Edit Form -->
+
+                            </div>
+
+                            <div class="tab-pane fade pt-3" id="profile-change-password">
+                                <!-- Change Password Form -->
+                                <form action="{{ route('passwordUpdate', $p->id) }}" method="POST">
+                                    
+                                    @csrf
+                                    <div class="row mb-3">
+                                        <label for="Password" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="password" type="password" class="form-control" id="password"
+                                                value="{{ $p->password }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Change Password</button>
+                                    </div>
+                                </form><!-- End Change Password Form -->
 
                             </div>
 

@@ -33,6 +33,7 @@ Route::get('/manageBooking', [BookingController::class,'manageBooking'])->name('
 Route::resource('booking', BookingController::class);
 
 Route::get('/viewProfile', [CustomerController::class,'viewProfile'])->name('viewProfile');
+Route::post('/passwordUpdate/{id}', [CustomerController::class,'passwordUpdate'])->name('passwordUpdate');
 
 Auth::routes();
 
