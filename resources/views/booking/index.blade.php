@@ -25,7 +25,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Booking Date</th>
                                     <th scope="col">Payment Method</th>
-                                    <th scope="col">Staus</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>

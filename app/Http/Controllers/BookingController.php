@@ -87,7 +87,7 @@ class BookingController extends Controller
             $booking_venues->save();
 
             Toastr::success('Booking successfull :)', 'Success');
-            return redirect()->back();
+            return redirect()->route('customer.index');
         }
     }
 
@@ -163,7 +163,10 @@ class BookingController extends Controller
 
             $dateCheck = Booking::where('venue_id', $request->venue_id)->where('date', $request->date)->get()->first();
             if ($dateCheck) {
-                $result = '<p style="color:#fff">Already Booked. Please Select Another Date</p>';
+                $result = '<p style="background-color:red; color:#fff; text-align:center">Already Booked. Please Select Another Date</p>';
+            }
+            else{
+                $result = '<p style="background-color:green; color:#fff; text-align:center">Select a Date</p>';
             }
             echo $result;
         }

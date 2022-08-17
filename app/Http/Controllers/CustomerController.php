@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
 use GrahamCampbell\ResultType\Success;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +26,15 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        $customer_id = Auth::user()->id;
+      //  dd($customer_id);
+        $booking = Booking::with('venue')->where('customer_id', $customer_id)->get();
 
+        $user = User::get();
+        return view('customer.index',[
+            'user' => $user,
+            'booking' => $booking
+        ]);
     }
 
     /**
@@ -97,7 +113,20 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profileUpdate = User::find($id);
+
+        $profileUpdate->update([
+
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+
+        ]);
+        $profileUpdate->save();
+
+        Toastr::success('Profile Update successfull :)', 'Success');
+        return redirect()->route('viewProfile');
+
     }
 
     /**
@@ -111,41 +140,14 @@ class CustomerController extends Controller
         //
     }
 
-    public function signup()
+    public function viewProfile()
     {
-        return view('customer.create');
-    }
-    public function customer_login()
-    {
-        return view('customer.login');
-    }
+        $customer_id = Auth::user()->id;
+        $profile = User::where('id', $customer_id)->get();
 
-    public function customer_login_check(Request $request)
-    {
-        $customer_info = Customer::whereEmail($request->email)->wherePassword($request->password)->first();
+        return view('customer.profile',[
+            'profile' => $profile
+        ]);
 
-
-        if (!empty($customer_info)) {
-
-            $info = array(
-                'id' => $customer_info->id,
-                'login_status' => 'success'
-            );
-
-            $request->session()->put('customer_info', json_encode($info));
-        } else {
-            return redirect()->back()->with('message', 'Sorry User not exist');
-        }
-        return redirect()->route('customerDashboard');
-    }
-
-    public function customerDashboard(Request $request)
-    {
-        if ($request->session()->has('customer_info')) {
-            return view('customer.index');
-        }
-        else {
-            return redirect()->route('customer_login');
-        }
     }
 }

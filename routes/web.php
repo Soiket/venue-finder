@@ -32,6 +32,8 @@ Route::get('bookingDate', [BookingController::class,'bookingDate'])->name('booki
 Route::get('/manageBooking', [BookingController::class,'manageBooking'])->name('manageBooking');
 Route::resource('booking', BookingController::class);
 
+Route::get('/viewProfile', [CustomerController::class,'viewProfile'])->name('viewProfile');
+
 Auth::routes();
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

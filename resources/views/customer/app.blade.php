@@ -11,7 +11,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
+            <a href="{{ route('customer.index') }}" class="logo d-flex align-items-center">
                 <img src="{{ asset('admin/assets/img/logo.png') }}" alt="">
                 <span class="d-none d-lg-block">Venue Finder</span>
             </a>
@@ -64,7 +64,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('dashboard') }}">
+                <a class="nav-link " href="{{ route('customer.index') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -73,68 +73,12 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#division-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Division</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-journal-text"></i><span>Profile</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="division-nav" class="nav-content collapse " data-bs-parent="#division-nav">
                     <li>
-                        <a class="" href="{{ route('create-division') }}">
-                            <i class="bi bi-circle"></i><span>Add Division</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('manage-division') }}">
-                            <i class="bi bi-circle"></i><span>Manage Division</span>
-                        </a>
-                    </li>
-                </ul>
-
-            </li><!-- End Forms Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#zone-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Zone</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="zone-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="{{route('zone.create')}}">
-                            <i class="bi bi-circle"></i><span>Add Zone</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('zone.index')}}">
-                            <i class="bi bi-circle"></i><span>Manage Zone</span>
-                        </a>
-                    </li>
-                </ul>
-
-            </li><!-- End Forms Nav -->
-            
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#venue-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Venue</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="venue-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="{{route('venue.create')}}">
-                            <i class="bi bi-circle"></i><span>Add Venue</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('venue.index')}}">
-                            <i class="bi bi-circle"></i><span>Manage Venue</span>
-                        </a>
-                    </li>
-                </ul>
-
-            </li><!-- End Forms Nav -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#booking-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Booking</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="booking-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="{{route('manageBooking')}}">
-                            <i class="bi bi-circle"></i><span>Manage Booking</span>
+                        <a class="" href="{{ route('viewProfile') }}">
+                            <i class="bi bi-circle"></i><span>View Profile</span>
                         </a>
                     </li>
                 </ul>
@@ -145,7 +89,7 @@
     </aside><!-- End Sidebar-->
     <main id="main" class="main">
 
-        @yield('main')
+        @yield('customerPanel')
 
     </main>
 
