@@ -10,9 +10,8 @@
         <div class="row">
 
             <div class="col-md-4">
-                <form action="{{ route('venueSearch') }}" method="POST"
-                    style="background-color: rgb(255, 175, 4); padding:20px">
-                    @csrf
+                <form action="{{ route('venueSearch') }}" method="GET"
+                    style="background-color: rgb(255, 175, 4); padding:20px">                   
 
                     <div class="form-group">
                         <label for="inputAddress2">Search Venu Name </label>
@@ -59,8 +58,13 @@
                             <div class="row">
 
                                 <div class="col-md-4">
-
-                                    <img style="height: 100%" src="{{ asset('storage/images') }}/{{ $item->image }}">
+                                    @if($item->image)
+                                        <img src="{{ asset('images/venue/'.$item->image) }}" alt="{{ $item->name }}"
+                                            class="img-fluid">
+                                    @else
+                                    <img style="height: 100%" src="https://images.unsplash.com/photo-1551174078-56deb88b8799?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFuZ2xhZGVzaCUyMGxvY2F0aW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
+                                    @endif 
+                                    
                                 </div>
                                 <div class="col-md-8">
                                     <h5 class="card-title">{{ $item->name }}</h5>
