@@ -27,7 +27,7 @@ class BookingController extends Controller
 
 
         $venue = Venue::where('id', $id)->first();
-        $booking = Booking::first(); 
+        $booking = Booking::first();
 
      //   dd($booking);
 
