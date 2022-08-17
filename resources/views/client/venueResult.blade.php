@@ -69,8 +69,11 @@
                                     <p class="card-text"><b>Address: </b>{{ $item->address }}</p>
                                     <p class="card-text">{{ $item->description }}</p>
                                     <h5 style="" class="card-title"><b>BDT</b> {{ round($item->price) }}</h5>
-
+                                    @if(Auth::user())
                                     <a href="{{route('venuBooking', $item->id)}}" class="btn btn-primary" style="float: right">Book Now</a>
+                                    @else
+                                    <a href="{{route('register')}}" class="btn btn-primary" style="float: right">Sign Up</a>
+                                    @endif
                                 </div>
 
                             </div>
