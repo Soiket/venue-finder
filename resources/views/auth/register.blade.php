@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('client.app')
 
-@section('content')
+@section('client_main')
+
+<div style="height: 200px"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -67,6 +69,9 @@
                                     {{ __('Register') }}
                                 </button>
                             </div>
+                        </div>
+                        <div class="col-12">
+                            <p class="small mb-0">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
                         </div>
                     </form>
                 </div>
