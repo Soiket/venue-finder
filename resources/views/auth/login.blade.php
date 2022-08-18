@@ -1,22 +1,16 @@
 @extends('client.app')
 
 @section('client_main')
-    @include('admin.style')
+    {{-- @include('admin.style') --}}
 
 
     <div class="container">
 
-        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <section class="section register d-flex flex-column align-items-center justify-content-center py-4" style="min-height: 60vh;margin-top:10vh">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                        <div class="d-flex justify-content-center py-4">
-                            <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                <img src="" alt="">
-                                <span class="d-none d-lg-block">Welcome to Venue Finder</span>
-                            </a>
-                        </div><!-- End Logo -->
 
                         <div class="card mb-3">
 
@@ -31,13 +25,9 @@
                                     @csrf
 
                                     <div class="row mb-3">
-                                        <label for="email"
-                                            class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
-
-                                        <div class="col-md-8">
-                                            <input id="email" type="email"
-                                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                                value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <div class="col-md-12">
+                                            <input id="email" type="email" placeholder="Email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email" required >
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -47,14 +37,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3">
-                                        <label for="password"
-                                            class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                    <div class="row mb-3">                                       
 
-                                        <div class="col-md-8">
-                                            <input id="password" type="password"
-                                                class="form-control @error('password') is-invalid @enderror" name="password"
-                                                required autocomplete="current-password">
+                                        <div class="col-md-12">
+                                            <input id="password" type="password" placeholder="Password"
+                                                class="form-control @error('password') is-invalid @enderror" name="password" required>
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -73,7 +60,8 @@
                                         </div>
                                     </div><br>
                                     <div class="col-12">
-                                        <p class="small mb-0">Don't have account? <a href="{{ route('register') }}">Create
+                                        <p class="small mb-0">Don't have account? <a href="{{ route('register') }}"
+                                                class="btn-link">Create
                                                 an account</a></p>
                                     </div>
                                 </form>

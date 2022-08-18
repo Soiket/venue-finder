@@ -11,8 +11,9 @@
     <link rel="icon" href="{{ asset('client/img/core-img/favicon.ico') }}">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('client/style.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/toastr.min.css') }}">
@@ -146,7 +147,8 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="{{ route('customer.index') }}">View Profile</a>
+                                            <a class="dropdown-item" href="{{ route('customer.index') }}">View
+                                                Profile</a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                           document.getElementById('logout-form').submit();">
@@ -161,8 +163,11 @@
                                     }
                                 @else
                                     <div class="menu-btn">
-                                        <a href="{{ route('login') }}" class="btn palatin-btn">Login</a>
-                                        {{-- <a href="{{ route('register') }}" class="btn palatin-btn">Sign Up</a> --}}
+                                        @if (Route::is('login'))
+                                            <a href="{{ route('register') }}" class="btn palatin-btn">Sign Up</a>
+                                        @else
+                                            <a href="{{ route('login') }}" class="btn palatin-btn">Login</a>
+                                        @endif
                                     </div>
                                 @endif
 
@@ -187,8 +192,8 @@
                 <!-- Footer Widget Area -->
                 <div class="col-12 col-lg-5">
                     <div class="footer-widget-area mt-50">
-                        <a href="#" class="d-block mb-5"><img src="{{ asset('client/img/core-img/logo.png') }}"
-                                alt=""></a>
+                        <a href="#" class="d-block mb-5"><img
+                                src="{{ asset('client/img/core-img/logo.png') }}" alt=""></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
                             sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus
                             finibus. </p>
@@ -254,13 +259,13 @@
     {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript">
-        $('.date').datepicker({  
-           format: 'yyyy-mm-dd',
-           startDate: new Date(),
-           inline: true
-           
-         });  
-    </script> 
+        $('.date').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: new Date(),
+            inline: true
+
+        });
+    </script>
 
 </body>
 

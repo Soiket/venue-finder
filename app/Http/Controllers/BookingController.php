@@ -60,7 +60,7 @@ class BookingController extends Controller
     public function store(Request $request)
     {
 
-        $dateCheck = Booking::where('venue_id', $request->venue_id)->where('date', $request->date)->get()->first();
+        $dateCheck = Booking::where('venue_id', $request->venue_id)->where('date', $request->date)->first();
 
         if ($dateCheck) {
 
@@ -180,7 +180,7 @@ class BookingController extends Controller
     public function manageBooking()
     {
 
-        $booking = Booking::with('venue', 'user')->get()->all();
+        $booking = Booking::with('venue', 'user')->orderBy('id','desc')->get();
         return view('booking.index',[
             'booking' => $booking,
         ]);

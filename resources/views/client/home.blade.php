@@ -83,11 +83,12 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form action="{{route('venueSearch')}}"  method="GET">                            
+                        <form action="{{ route('venueSearch') }}" method="GET">
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select1">Venue Name</label>
-                                <input type="search" name="name" id="venue_name" height="100px" placeholder=" Looking for a venue...." >
+                                <input type="search" name="name" id="venue_name" height="100px"
+                                    placeholder=" Looking for a venue....">
                             </div>
                             <!-- Form Group -->
                             <div class="form-group">
@@ -107,8 +108,7 @@
                                     <option value="all">Select One</option>
                                 </select>
                             </div>
-                            <button class="btn btn-primary" type="submit"><i
-                                    class="fa fa-search"></i> Search</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Search</button>
                             <button style="background-color: rgb(27, 27, 27)" class="btn btn-info" type="reset"
                                 id="reset">Reset</button>
                         </form>
