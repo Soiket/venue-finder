@@ -22,7 +22,12 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
+    {
+
+    }
+
+    public function bookingPage($id)
     {
 
 
@@ -143,7 +148,7 @@ class BookingController extends Controller
 
         Toastr::success('Booking Updated successfully :)', 'Success');
 
-        return redirect()->route('booking.index');
+        return redirect()->route('manageBooking');
     }
 
     /**

@@ -17,6 +17,7 @@
                         <form method="POST" action="{{ route('booking.update', $booking->id) }}">
                             @method('PUT')
                             @csrf
+                            <input type="hidden" name="id" value="{{$booking->id}}">
                             <div class="row mb-3">
                                 <label for="status"
                                         class="col-md-4 col-form-label text-md-end">{{ __('Booking Status') }}</label>
