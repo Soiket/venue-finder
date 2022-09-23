@@ -39,9 +39,7 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <div class="line" data-animation="fadeInUp" data-delay="300ms"></div>
                                 <h2 data-animation="fadeInUp" data-delay="500ms">A place to remember</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at
-                                    rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                                <p data-animation="fadeInUp" data-delay="700ms"></p>
                                 <a href="#" class="btn palatin-btn mt-50" data-animation="fadeInUp"
                                     data-delay="900ms">Read More</a>
                             </div>
@@ -132,16 +130,57 @@
                             <div class="line-"></div>
                             <h2>A place to remember</h2>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
-                            sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus
-                            finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem
-                            maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus
-                            faucibus finibus.</p>
-                        <div class="about-key-text">
-                            <h6><span class="fa fa-check"></span> Donec malesuada lorem maximus mauris sceleri</h6>
-                            <h6><span class="fa fa-check"></span> Malesuada lorem maximus mauris sceleri</h6>
-                        </div>
-                        <a href="#" class="btn palatin-btn mt-50">Read More</a>
+
+
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <h4><strong>Intercontinental</strong></h4>
+                                            <p style="text-align: left">
+                                                Located in the prestigious downtown business district, InterContinental
+                                                Dhaka is the foremost name of luxury. The hotel is beautifully designed
+                                                boasted with Millennium modern outlook with a touch of local culture.
+                                                Featuring 226 luxury rooms and suites, a selection of restaurants offering
+                                                exquisite cuisines. Host your events at the meeting spaces equipped with
+                                                modern facilities. Our outdoor temperature-controlled swimming pool and
+                                                Health Club is a perfect destination for business or leisure.
+
+                                            </p>
+                              </div>
+                              <div class="carousel-item">
+                                <h4>Bangabandhu International Conference Center:</h4>
+                                <p style="text-align: left">
+                                    Bangabandhu International Conference Center (BICC) is the only multi-purpose
+                                    convention facility in the country, having 17 (seventeen) venues for holding
+                                    small to large scale events, i.e, state functions, social events, seminars,
+                                    conferences, product launches, annual general meetings, fairs, exhibitions,
+                                    cultural programs, reality shows, etc. BICC has been the venue for many renowned
+                                    economic, social and cultural events. It has proudly hosted a number of
+                                    international conferences and summits.
+                                </p>
+                              </div>
+                              <div class="carousel-item">
+                                <h4>International Convention City Bashundhara:</h4>
+                                            <p style="text-align: left">
+                                                (ICCB) is the only integrated and mega facility in the country that was built
+                                                with a view to redefine the scope and standard of domestic service industry. It
+                                                came into operation on January 1, 2015. It is perfect option for sociocultural,
+                                                corporate, educational, commercial, national and international events of any
+                                                type.<br>
+    
+                                                Having more than 650 thousand square feet of covered space within its four
+                                                beautifully designed halls supported by ample open space for purposeful usage,
+                                                the facility is equipped to host big crowd events for up to 20 thousand
+                                                guests at a time.
+                                            </p>
+                              </div>
+                            </div>
+                           
+                           
+                          </div>
+                  
+
+
                     </div>
                 </div>
 
@@ -149,15 +188,15 @@
                     <div class="about-thumbnail homepage mb-100">
                         <!-- First Img -->
                         <div class="first-img wow fadeInUp" data-wow-delay="100ms">
-                            <img src="{{ asset('client/img/bg-img/5.jpg') }}" alt="">
+                            <img src="{{ asset('client/img/s4.jpg') }}" alt="">
                         </div>
                         <!-- Second Img -->
                         <div class="second-img wow fadeInUp" data-wow-delay="300ms">
-                            <img src="{{ asset('client/img/bg-img/6.jpg') }}" alt="">
+                            <img src="{{ asset('client/img/s3.jpg') }}" alt="">
                         </div>
                         <!-- Third Img-->
-                        <div class="third-img wow fadeInUp" data-wow-delay="500ms">
-                            <img src="{{ asset('client/img/bg-img/7.jpg') }}" alt="">
+                        <div class="third-img wow fadeInUp margin-top:-5%" data-wow-delay="500ms">
+                            <img src="{{ asset('client/img/s2.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -168,18 +207,19 @@
 
     <!-- ##### Pool Area Start ##### -->
     <section class="pool-area section-padding-100 bg-img bg-fixed"
-        style="background-image: url({{ asset('client/img/bg-img/4.png') }});">
+        style="background-image: url({{ asset('client/img/s1.jpg') }});">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-12 col-lg-7">
                     <div class="pool-content text-center wow fadeInUp" data-wow-delay="300ms">
                         <div class="section-heading text-center white">
                             <div class="line-"></div>
-                            <h2>Infinity Pool</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus
-                                mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus
-                                faucibus finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                                malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum.</p>
+                            <h2>Saint Martin's Island</h2>
+                            <p>Saint Martin's Island has become a tourist spot, and five shipping liners run daily trips to
+                                the island. Tourists can book their trip either from Chittagong or from Cox's Bazar. The
+                                surrounding coral reef has an extension named Chera Dwip. A small bush is there, which is
+                                the only green part. People do not live on this part, so it is advisable for the tourists to
+                                go there early and come back by afternoon.</p>
                         </div>
 
                         <div class="row">
@@ -219,8 +259,8 @@
                     <div class="section-heading text-center">
                         <div class="line-"></div>
                         <h2>Choose a room</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris
-                            sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien.</p>
+                        <br>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -232,15 +272,24 @@
                     <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
                         <!-- Thumbnail -->
                         <div class="bg-thumbnail bg-img"
-                            style="background-image: url({{ asset('client/img/bg-img/1.jpg') }});"></div>
+                            style="background-image: url({{ asset('client/img/s5.jpg') }});"></div>
                         <!-- Price -->
                         <p class="price-from">From $150/night</p>
                         <!-- Rooms Text -->
                         <div class="rooms-text">
                             <div class="line"></div>
                             <h4>Deluxe Room</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus
-                                mauris sceleri sque.</p>
+                            <p>Well-appointed Deluxe rooms offer excellent amenities including a fully equipped kitchen with
+                                microwave, free Wi-Fi and 40-inch LED TV, ensuring that you have a comfortable stay in
+                                Dhaka.
+                                City view
+                                Work space
+                                Ideal for 2 adults and 1 child or 2 adults
+                                King or twin beds
+                                Complimentary toiletries
+                                Bathrobes and slippers
+                                Towels
+                            </p>
                         </div>
                         <!-- Book Room -->
                         <a href="#" class="book-room-btn btn palatin-btn">Book Room</a>
@@ -252,15 +301,17 @@
                     <div class="single-rooms-area wow fadeInUp" data-wow-delay="300ms">
                         <!-- Thumbnail -->
                         <div class="bg-thumbnail bg-img"
-                            style="background-image: url({{ asset('client/img/bg-img/8.jpg') }});"></div>
+                            style="background-image: url({{ asset('client/img/s6.jpg') }});"></div>
                         <!-- Price -->
                         <p class="price-from">From $150/night</p>
                         <!-- Rooms Text -->
                         <div class="rooms-text">
                             <div class="line"></div>
                             <h4>Double Suite</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus
-                                mauris sceleri sque.</p>
+                            <p>Featuring a plush bed and living space with extra seating, a sleeper sofa, and a TV that can
+                                be seen from every angle of the suite. Each studio suite includes a workstation, a wet bar,
+                                a refrigerator, and a microwave.
+                            </p>
                         </div>
                         <!-- Book Room -->
                         <a href="#" class="book-room-btn btn palatin-btn">Book Room</a>
@@ -272,15 +323,19 @@
                     <div class="single-rooms-area wow fadeInUp" data-wow-delay="500ms">
                         <!-- Thumbnail -->
                         <div class="bg-thumbnail bg-img"
-                            style="background-image: url({{ asset('client/img/bg-img/9.jpg') }});"></div>
+                            style="background-image: url({{ asset('client/img/s7.jpg') }});"></div>
                         <!-- Price -->
                         <p class="price-from">From $100/night</p>
                         <!-- Rooms Text -->
                         <div class="rooms-text">
                             <div class="line"></div>
                             <h4>Single Room</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus
-                                mauris sceleri sque.</p>
+                            <p>Our highly affordable and bestselling single bed room lets you step into a world of comfort,
+                                fabricated with plush amenities in the most subtle way. Our Premier Single room rent in
+                                Dhaka is one of the most economic rate room appointed with a single bed associated by cosy
+                                cornered reading table along with mood controlled lamps; so work or play both can switch
+                                when time demands for it.
+                            </p>
                         </div>
                         <!-- Book Room -->
                         <a href="#" class="book-room-btn btn palatin-btn">Book Room</a>

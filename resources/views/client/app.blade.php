@@ -6,6 +6,9 @@
 
     <!-- Title -->
     <title>The Venue Finder</title>
+    {{-- meta description --}}
+    <meta name="description" content="The Venue Finder is a venue finding service that helps you find the perfect venue for your event.">
+    {{-- meta keywords --}}
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('client/img/core-img/favicon.ico') }}">
