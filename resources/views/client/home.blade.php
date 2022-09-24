@@ -7,7 +7,7 @@
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url({{ asset('client/img/bg-img/bg-1.jpg') }});">
+                <div class="slide-img bg-img" style="background-image: url({{ asset('client/img/s8.jpg') }});">
                 </div>
                 <div class="container">
                     <div class="row justify-content-center">
@@ -16,11 +16,8 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <div class="line" data-animation="fadeInUp" data-delay="300ms"></div>
                                 <h2 data-animation="fadeInUp" data-delay="500ms">The Vacation Heaven</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla
-                                    dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
-                                <a href="#" class="btn palatin-btn mt-50" data-animation="fadeInUp"
-                                    data-delay="900ms">Read More</a>
+                                <p data-animation="fadeInUp" data-delay="700ms"></p>
+                                
                             </div>
                         </div>
                     </div>
@@ -28,7 +25,7 @@
             </div>
 
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide d-flex align-items-center justify-content-center">
+            {{-- <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
                 <div class="slide-img bg-img" style="background-image: url({{ asset('client/img/bg-img/bg-2.jpg') }});">
                 </div>
@@ -46,10 +43,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide d-flex align-items-center justify-content-center">
+            {{-- <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
                 <div class="slide-img bg-img" style="background-image: url({{ asset('client/img/bg-img/bg-3.jpg') }});">
                 </div>
@@ -69,14 +66,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </section>
     <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Book Now Area Start ##### -->
-    <div class="book-now-area">
+    <div class="book-now-area" id="reservation">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
@@ -243,7 +240,7 @@
                             </div>
                         </div>
                         <!-- Button -->
-                        <a href="#" class="btn palatin-btn mt-50">Read More</a>
+                        <a href="#reservation" class="btn palatin-btn mt-50">Read More</a>
                     </div>
                 </div>
             </div>
@@ -338,7 +335,7 @@
                             </p>
                         </div>
                         <!-- Book Room -->
-                        <a href="#" class="book-room-btn btn palatin-btn">Book Room</a>
+                        <a href="#reservation" class="book-room-btn btn palatin-btn">Book Room</a>
                     </div>
                 </div>
 
@@ -348,7 +345,7 @@
     <!-- ##### Rooms Area End ##### -->
 
     <!-- ##### Contact Area Start ##### -->
-    <section class="contact-area d-flex flex-wrap align-items-center">
+    <section class="contact-area d-flex flex-wrap align-items-center hide">
         <div class="home-map-area">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22236.40558254599!2d-118.25292394686001!3d34.057682914027104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2z4Kay4Ka4IOCmj-CmnuCnjeCmnOCnh-CmsuCnh-CmuCwg4KaV4KeN4Kav4Ka-4Kay4Ka_4Kar4KeL4Kaw4KeN4Kao4Ka_4Kav4Ka84Ka-LCDgpq7gpr7gprDgp43gppXgpr_gpqgg4Kav4KeB4KaV4KeN4Kak4Kaw4Ka-4Ka34KeN4Kaf4KeN4Kaw!5e0!3m2!1sbn!2sbd!4v1532328708137"
